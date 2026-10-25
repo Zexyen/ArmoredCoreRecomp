@@ -45,6 +45,8 @@ aspect_ratio = "4:3"
 
 [controller]
 default_mode = "digital"
+# Pre-DualShock libpad: input from a pad answering analog (0x73) is ignored.
+lock_mode = true
 
 # Online mount gate: digests + track count + optional TOC fingerprint
 # (see docs/NETPLAY.md).
