@@ -1,0 +1,54 @@
+# Autofilled by tools/new_project_layout/probe_disc.py from your legal dump.
+# Review before shipping. Runtime quirks / overlay seeds still need hand work.
+
+[game]
+name = "ArmoredCore"
+id = "SCUS-94182"
+players = 1
+exe = "disc/SCUS_941.82"
+disc = "/home/kalvarez/git/ac1recomp/rom/cue/Armored Core (USA).cue"
+load_address = "0x80011000"
+entry_pc = "0x80011E6C"
+text_size = "0x00029000"
+stack_base = "0x801FFFF0"
+
+# Digests are for data Track 01 (first BINARY FILE / TRACK 01).
+[prepare_disc]
+out_dir = "disc"
+bin_name = "Armored Core (USA).bin"
+cue_name = "Armored Core (USA).cue"
+boot_exe = "SCUS_941.82"
+known_sizes = [524759424]
+known_md5 = [
+  "9a1e568c12e921ec51fd65dbe8ed8c53",
+]
+known_sha1 = [
+  "13ca2ba5279ddf6cef410bea1d2184d5afb1c284",
+]
+known_crc32 = [
+  "f0e0806d",
+]
+
+[recompiler]
+seeds = "seeds/ghidra_funcs.txt"
+out_dir = "generated"
+strict = true
+
+[runtime]
+window_title = "ArmoredCore Recompiled"
+memcard_dir = "saves"
+overlay_cache = true
+
+[video]
+renderer = "opengl"
+aspect_ratio = "4:3"
+
+[controller]
+default_mode = "digital"
+
+# Online mount gate: digests + track count + optional TOC fingerprint
+# (see docs/NETPLAY.md).
+[netplay]
+require_cue = true
+required_tracks = 1
+required_disc_fp = "0f130ee725207a0526831b415dbc42937ca5daef2339b126e331243a21bced51"
